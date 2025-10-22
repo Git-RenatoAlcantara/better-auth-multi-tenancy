@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Better Auth Multi-Tenancy
 
-First, run the development server:
+Este projeto é uma aplicação Next.js com autenticação avançada e suporte a multi-tenancy (multi-organizações), utilizando Prisma como ORM e uma arquitetura modular para fácil extensão.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades
+- Autenticação de usuários (login, registro, logout)
+- Suporte a múltiplas organizações (multi-tenancy)
+- Gerenciamento de membros e permissões por organização
+- Dashboard para usuários e administradores
+- UI moderna com componentes reutilizáveis
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura do Projeto
+- `app/` — Páginas e rotas da aplicação (incluindo rotas protegidas e públicas)
+- `components/` — Componentes React reutilizáveis (UI, formulários, tabelas, etc.)
+- `db/` — Inicialização e configuração do banco de dados
+- `lib/` — Funções utilitárias e lógica de autenticação
+- `prisma/` — Schema do Prisma e migrações
+- `server/` — Lógica de backend (ex: manipulação de usuários e organizações)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
+- [Next.js](https://nextjs.org/)
+- [Prisma ORM](https://www.prisma.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como rodar o projeto
+1. Instale as dependências:
+	```bash
+	npm install
+	```
+2. Configure o banco de dados em `.env` e rode as migrações:
+	```bash
+	npx prisma migrate dev
+	```
+3. Inicie o servidor de desenvolvimento:
+	```bash
+	npm run dev
+	```
 
-## Learn More
+## Scripts úteis
+- `npm run dev` — Inicia o servidor Next.js em modo desenvolvimento
+- `npx prisma migrate dev` — Aplica as migrações do banco de dados
+- `npx prisma studio` — Abre o Prisma Studio para visualizar dados
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura de Multi-Tenancy
+Cada organização possui seus próprios membros e permissões. O usuário pode alternar entre organizações e visualizar dados específicos de cada uma.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contribuição
+Pull requests são bem-vindos! Para contribuir, abra uma issue ou envie um PR com melhorias ou correções.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licença
+Este projeto está sob a licença MIT.

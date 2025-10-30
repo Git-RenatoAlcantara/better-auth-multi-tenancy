@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/table"
 import { Member, User } from "@/lib/generated/prisma"
 import { Button } from "./ui/button"
+import MembersTableAction from "./members-table-action"
 
 interface MembersTableProps {
     members: MembersWithUser[]
@@ -41,7 +42,7 @@ export default function MembersTable({
                     <TableCell>{member.user.email}</TableCell>
                     <TableCell>{member.role}</TableCell>
                     <TableCell className="text-right">
-                        <Button variant="destructive">Remove</Button>
+                        <MembersTableAction memberId={member.id} organizationId={member.organizationId}/>
                     </TableCell>
                 </TableRow>
                ))}
